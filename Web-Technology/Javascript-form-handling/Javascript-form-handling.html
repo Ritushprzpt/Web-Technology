@@ -24,7 +24,7 @@
             // Required validation are added.
             var gender = document.getElementById('gender').value;
             var address = document.getElementById('address').value;
-            var mother_name = document.getElementById('mother-name').value;
+            var motherName = document.getElementById('mother-name').value;
             var occupation = document.getElementById('occupation').value;
             var district_level_percentage = document.getElementById('district_level_percentage').value;
             var see = document.getElementById('see').value;   
@@ -75,23 +75,23 @@
                 return false;
             }
             
-            if (mother_name == ''){
+            if (motherName == ''){
                 alert("Mother's name cannot be empty.");
                 return false;
             }
             
             if (occupation== ''){
-                alert("Occupation section cannot be empty.");
+                alert('Occupation section cannot be empty.');
                 return false;
             }
             
             if (district_level_percentage == ''){
-                alert("District level percentage section cannot be empty.");
+                alert("District level percentage section can't be empty.");
                 return false;
             }
             
             if (district_level_percentage < 60){
-                alert("You are not eligible to study BCA.");
+                alert('You are not eligible to study BCA.');
                 return false;
             }
             
@@ -101,7 +101,11 @@
             }
             
             if (see < 50){
-                alert("You are not eligible to study BCA.");
+                alert('You are not eligible to study BCA.');
+                return false;
+            }
+            if (hsebPercentage == '') {
+                alert("HSEB percentage can't be empty.");
                 return false;
             }
             if (hsebPercentage < 40) {
