@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Javascript form handling</title>
+    <style>
+        fieldset {
+            width: 50%;
+        }
+        label {
+            font-weight: bolder;
+        }
+    </style>
+    <script type="text/javascript">
+        function validateForm() {
+            var firstName = document.getElementById('first-name').value;
+            var lastName = document.getElementById('last-name').value;
+            var email = document.getElementById('email').value;
+            var dateOfBirth = document.getElementById('date-of-birth').value;
+            var country = document.getElementById('country').value;
+            var fatherName = document.getElementById('father-name').value;
+            var hsebPercentage = document.getElementById('hseb-percentage').value;
+
+            // Required validation are added.
+            var gender = document.getElementById('gender').value;
+            var address = document.getElementById('address').value;
+            var mother_name = document.getElementById('mother-name').value;
+            var occupation = document.getElementById('occupation').value;
+            var district_level_percentage = document.getElementById('district_level_percentage').value;
+            var see = document.getElementById('see').value;   
+
+            if (firstName == '') {
+                alert('First name cannot be empty.');
+                return false;
+            }
+            if (lastName == '') {
+                alert('Last name cannot be empty.');
+                return false;
+            }
+
+            if (dateOfBirth == '') {
+                alert('Date of birth cannot be empty.');
+                return false;
+            }
+
+            if (email == '') {
+                alert('Email field cannot be empty.');
+                return false;
+            } else {
+                //This is the regular expression for the valid email address
+                const regularExpression = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                /*
+                    regularExpression.test(String(email).toLowerCase())
+                    The .test method is used to validate the string if it matches the given regular expression and returns boolean value.
+                    If it dosen't match the regular expression, it returns false otherwise true.
+                */
+                if (!regularExpression.test(String(email).toLowerCase())) {
+                    alert('Invalid email format. Please use valid email format.');
+                    return false;
+                }
+            }
+
+            if (country == '') {
+                alert('Please select a country');
+                return false;
+            }
+            // All tasks are added.
+            if (address==''){
+                alert('Address section cannot be empty.');
+                return false;
+            }
+
+            if (fatherName == '') {
+                alert("Father's name cannot be empty.");
+                return false;
+            }
+            
+            if (mother_name == ''){
+                alert("Mother's name cannot be empty.");
+                return false;
+            }
+            
+            if (occupation== ''){
+                alert("Occupation section cannot be empty.");
+                return false;
+            }
+            
+            if (district_level_percentage == ''){
+                alert("District level percentage section cannot be empty.");
+                return false;
+            }
+            
+            if (district_level_percentage < 60){
+                alert("You are not eligible to study BCA.");
+                return false;
+            }
+            
+            if (see == ''){
+                alert("S.E.E percentage section can't be empty.");
+                return false;
+            }
+            
+            if (see < 50){
+                alert("You are not eligible to study BCA.");
+                return false;
+            }
+            if (hsebPercentage < 40) {
+                alert('You are not eligible to study BCA.');
+                return false;
+            }
+
+            document.getElementById('personal-information-form').submit();
+        }
+    </script>
+</head>
+
+<body>
+    <form id="personal-information-form" onsubmit="event.preventDefault(); validateForm();"
+        action="http://localhost/BCA-2076/form/user-information.php" method="POST">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <table>
+
+                <tr>
+                    <td><label for="first-name">First Name</label></td>
+                    <td><input type="text" id="first-name" name="first_name" placeholder="Enter your first name" /></td>
+                </tr>
+
+                <tr>
+                    <td><label for="middle-name">Middle name</label></td>
+                    <td><input type="text" id="middle-name" name="middle_name" placeholder="Enter your middle name" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="last-name">Last name</label></td>
+                    <td><input type="text" id="last-name" name="last_name" placeholder="Enter your last name" /></td>
+                </tr>
+
+                <tr>
+                    <td><label for="date-of-birth">Date of Birth</label></td>
+                    <td><input type="date" id="date-of-birth" name="date_of_birth" placeholder="Date of birth" /></td>
+                </tr>
+
+                <tr>
+                    <td><label>Gender</label></td>
+                    <td>Male<input type="radio" id="gender" value="male" name="gender" /> Female<input type="radio"
+                            checked value="female" name="gender" /> Others<input type="radio" value="others"
+                            name="gender" /></td>
+                </tr>
+
+                <tr>
+                    <td><label for="">Email</label></td>
+                    <td><input type="text" id="email" name="email" placeholder="Enter your email address" /></td>
+                </tr>
+                <tr>
+                    <td><label for="country">Country</label></td>
+                    <td>
+                        <select name="country" id="country">
+                            <option value="India">India</option>
+                            <option value="China">China</option>
+                            <option value="Nepal" selected>Nepal</option>
+                            <option value="USA">United States of America</option>
+                            <option value="Sri-Lanka">Sri-Lanka</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="address">Address</label></td>
+                    <td><input type="text" id="address" name="address" placeholder="Enter your address" /></td>
+                </tr>
+
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>Parents Information</legend>
+            <table>
+
+                <tr>
+                    <td><label for="father-name">Father's Name</label></td>
+                    <td><input type="text" id="father-name" name="father_name" placeholder="Enter your father's name" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="mother-name">Mother's Name</label></td>
+                    <td><input type="text" id="mother-name" name="mother_name" placeholder="Enter your mother's name" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="occupation">Occupation</label></td>
+                    <td><input type="text" id="occupation" name="occupation"
+                            placeholder="Enter your father's occupation" />
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>Academic Qualification</legend>
+            <table>
+                <tr>
+                    <td><label for="district_level_percentage">District Level</label></td>
+                    <td><input type="text" id="district_level_percentage" name="district_level_percentage"
+                            placeholder="Enter your district level percentage" /></td>
+                </tr>
+                <tr>
+                    <td><label for="">S.E.E</label></td>
+                    <td><input type="text" id="see" name="see_percentage" placeholder="Enter your S.E.E percentage" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">HSEB</label></td>
+                    <td><input type="text" id="hseb-percentage" name="hseb_percentage"
+                            placeholder="Enter your HSEB percentage" />
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <table>
+            <tr>
+                <td><input type="reset" /></td>
+                <td><input type="submit" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
