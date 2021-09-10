@@ -22,7 +22,7 @@
             var hsebPercentage = document.getElementById('hseb-percentage').value;
 
             // Required validation are added.
-            var gender = document.getElementById('gender').value;
+            var gender=document.getElementById('gender'),value;
             var address = document.getElementById('address').value;
             var motherName = document.getElementById('mother-name').value;
             var occupation = document.getElementById('occupation').value;
@@ -85,14 +85,6 @@
                 return false;
             }
 
-            for(i=0;i<a.length;i++){
-                if(a[i].checked=true)
-                    return true;
-                else{
-                    alert("Please select your gender");
-                    return false;
-                }
-            }
             if (district_level_percentage == ''){
                 alert("District level percentage section can't be empty.");
                 return false;
