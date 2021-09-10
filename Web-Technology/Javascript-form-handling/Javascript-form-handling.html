@@ -84,7 +84,15 @@
                 alert('Occupation section cannot be empty.');
                 return false;
             }
-            
+
+            for(i=0;i<a.length;i++){
+                if(a[i].checked=true)
+                    return true;
+                else{
+                    alert("Please select your gender");
+                    return false;
+                }
+            }
             if (district_level_percentage == ''){
                 alert("District level percentage section can't be empty.");
                 return false;
