@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            div>h1{
+                color:indigo
+            }
+            div p{
+                color:blue
+            }
+            h4~p{
+                color:red
+            }
+            h3+p{
+                color:green;
+            }
+        </style>
+        <title>HTML Combinators</title>
+    </head>
+    <body>
+        <h3>This is heading three.</h3>
+        <p>This is adjacent sibling of h3.</p>
+        <h4>This is heading four.</h4>
+        <p>This is the general sibling of h4.</p>
+        <div>
+            <p>This is inside a division. This is using descendent selector.</p>
+            <h1>This is inside a division. This is using child selector.</h1>
+        </div>
+    </body>
+</html>

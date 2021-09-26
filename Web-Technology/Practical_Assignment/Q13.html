@@ -1,0 +1,80 @@
+<!--Write a program to display the following information using HTML forms:-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fieldset</title>
+    </head>
+    <body>
+        <fieldset >
+            <legend>Your details</legend>
+                <ol>
+                    <li>
+                            <label for="full_name">Name</label>
+                            <input type="text" name="full_name" id="full_name" placeholder="Enter your name">
+                    </li>
+                    <li>
+                            <label for="email">Email</label>
+                            <input type="text" name="email" id="email" placeholder="Enter your email">
+                    </li>
+                    <li>
+                            <label for="phone">Phone</label>
+                            <input type="number" name="phone" id="phone" placeholder="Enter your phone number">
+                    </li>
+                </ol>
+        </fieldset>
+        <fieldset>
+            <legend>Delivery address</legend>
+            <ol>
+                <li>
+                    <label for="address">Address</label>
+                    <textarea name="address" id="" cols="23" rows="5"></textarea>
+                </li>
+                 <li>
+                    <label for="post_code">Post Code</label>
+                    <input type="text" name="post_code" id="post_code">
+                </li>
+                <li>
+                    <label for="country">Country</label>
+                    <input type="text" name="country" id="country">
+                </li>
+            </ol>
+        </fieldset>
+        <fieldset>
+            <legend>Card details</legend>
+            <ol>
+                <li>
+                    <fieldset>
+                        <legend>Card type</legend>
+                        <ol>
+                            <li>
+                                <input type="radio" name="Card" id="VISA"/>VISA
+                            </li>
+                            <li>
+                                <input type="radio" name="Card" id="AmEx"/>Amex
+                            </li>
+                            <li>
+                                <input type="radio" name="Card" id="mastercard"/>Mastercard
+                            </li>
+                        </ol>
+                    </fieldset>
+                </li>
+                <li>
+                    <label for="card_no">Card Number</label>
+                    <input type="number" name="card_no" id="card_no">
+                </li>
+                <li>
+                    <label for="s_code">Security code</label>
+                    <input type="number" name="s_code" id="s_code">
+                </li>
+                <li>
+                    <label for="Name_on_card">Name on card</label>
+                    <input type="text" name="Name_on_card" id="Name_on_card" placeholder="Exactly as on the card">
+                </li>
+            </ol>
+        </fieldset>
+        <fieldset>
+        	<button>Buy it!</button>
+        </fieldset>
+    </body>
+</html>
